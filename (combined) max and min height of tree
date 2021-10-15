@@ -1,0 +1,11 @@
+Attention!!
+max: normal way
+min:
+def min(treenode):
+    if not treenode:
+       return 0
+ ****** elif not treenode.left:
+       return min(treenode.right)+1
+    elif not treenode.right:
+****** return min(treenode.left)+1
+    return min(min(treenode.left),min(treenode.right))+1
