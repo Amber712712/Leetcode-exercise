@@ -4,4 +4,4 @@ def sumpath(treenode, sum):
     elif not treenode.left and not treenode.right:
        return sum==treenode.val
     else:
-       return sumpath(treenode.left, sum-treenode.val) and sumpath(treenode.right, sum-treenode.val)
+       return sumpath(treenode.left, sum-treenode.val) or sumpath(treenode.right, sum-treenode.val)
