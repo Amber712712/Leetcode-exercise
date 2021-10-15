@@ -1,0 +1,7 @@
+def sumpath(treenode, sum):
+    if not treenode:
+       return False
+    elif not treenode.left and not treenode.right:
+       return sum==treenode.val
+    else:
+       return sumpath(treenode.left, sum-treenode.val) and sumpath(treenode.right, sum-treenode.val)
