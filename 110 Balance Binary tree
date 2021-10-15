@@ -1,0 +1,11 @@
+def balance(treenode):
+   def hight(node):
+       if not node:
+          return 0
+       else:
+          return max(hight(node.left),hight(node.right))+1
+    if not treenode:
+       return True
+    elif abs(height(tree.left)-height(treenode.right))> 1:
+       return False
+    return balance(treenode.left) and balance(treenode.right)
