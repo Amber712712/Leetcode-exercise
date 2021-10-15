@@ -1,0 +1,10 @@
+def sumleft(node):
+   sum=0
+   def suml(node):
+       if not node:
+          return False
+       elif node.left and not node.left.left and not node.left.right:
+          sum+=node.left.val
+       return suml(node.left), suml(node.right)
+   suml(node)
+   return sum
