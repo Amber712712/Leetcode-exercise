@@ -1,0 +1,20 @@
+OA
+[[0,0,0,1],[0,1,0,0]]
+def oshi(r1,r2,c1,c2):
+    return abs(r1-r2)+abs(c1-c2)
+def function(list,k):
+    nr,nc=len(list),len(list[0])
+    houses=[r,c for r in range(nr) for c in range(nc) if list[r][c]==1]
+    validpoints=0
+    for r in nr:
+        for c in nc:
+            if list[r][c]==1:
+               continue
+            else:
+               lenhouse=len(houses)
+               for r1,c1 in houses:
+                   if oshi(r1,r,c1,c)<=k:
+                      lenhouse-=1
+               if lenhouse==0:
+                  validpoints+=1
+      return validpoints
