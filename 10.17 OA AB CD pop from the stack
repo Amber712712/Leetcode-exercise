@@ -1,0 +1,10 @@
+def function(s):
+    dic={'A':B,  }
+    s=list(s)
+    stack=list()
+    
+    for i in s:
+        if stack[-1]!=dic[i]:
+           stack.append(i)
+        else:
+           stack.pop()
