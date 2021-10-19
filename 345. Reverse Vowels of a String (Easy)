@@ -1,0 +1,16 @@
+def base(a)-> bool:
+    return a in 'aeiouAEIOU'
+def func(s):
+    n=len(s)
+    s=list(s)
+    i,j=0,len(s)-1
+    while i<j:
+       while i<j and not base(s[i]):
+          i+=1
+       while i<j and not base(s[j]):
+          j-=1
+       
+       s[i],s[j]=s[j],s[i]
+       i+=1
+       j-=1
+     return ''.join(s)
