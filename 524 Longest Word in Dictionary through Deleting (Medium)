@@ -1,0 +1,18 @@
+1 select t first that follow the rule: substr
+2 select max len of t
+
+def func(s,dic):
+    res=''
+    for t in dic:
+    
+        i,j=0,0
+        while i<len(s) and j<len(t):
+           if s[i]==t[j]:
+              j+=1
+           i+=1
+           
+        if j==len(t):
+           if len(t)>len(res) or (len(t)==len(res) and t<res):
+              res=t
+     return res
+    
