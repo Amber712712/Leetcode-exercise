@@ -1,12 +1,12 @@
 two ways to calculate
-1 from top to the bottom O(n^2) : match: return height  not match: return -1
-2 from bottom to the top O(n)
+1 from top to the bottom O(n^2) 
+2 from bottom to the top O(n): : match: return height  not match: return -1
 
-M2:
+M2:######store the height or -1
 def func(root):
     def height(root):
         if not root:
-           return False
+           return 0
         height(root.left)
         height(root.right)
         if height(root.left)==-1 or height(root.right)==-1 or abs(height(root.left)-height(root.right))>1:
