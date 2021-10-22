@@ -1,0 +1,8 @@
+def func(root):
+    if not root:
+       return 0
+    ans=0
+    left=func(root.left)
+    right=func(root.right)
+    ans=max(ans,left+right)
+    return left+right+1
