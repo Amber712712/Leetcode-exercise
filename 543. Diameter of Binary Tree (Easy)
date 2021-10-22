@@ -5,4 +5,4 @@ def func(root):
     left=func(root.left)
     right=func(root.right)
     ans=max(ans,left+right)
-    return left+right+1
+    return max(left,right)+1
