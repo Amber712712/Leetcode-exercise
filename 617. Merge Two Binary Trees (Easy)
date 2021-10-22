@@ -1,0 +1,7 @@
+def func(r1,r2):
+    if not (r1 and r2):
+       return r1 if r1 else r2
+    r1+=r2
+    r1.left=func(r1.left)
+    r1.right=func(r1.right)
+    return r1
