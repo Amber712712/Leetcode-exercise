@@ -1,0 +1,6 @@
+def func(root，t):
+    if not root:
+       return False
+    if not root.left and not root.right:
+       return root.val==t
+    return func(root.left, t-root.val) or func(root.right, t-root.val)
