@@ -1,0 +1,11 @@
+###use if-else 
+def func(root):
+    if not root:
+       return 0
+    if not root.left:
+       return func(root.right)+1
+    if not root.right:
+       return func(root.left)+1
+    else:
+       return min(func(root.left),func(root.right))+1
+       
