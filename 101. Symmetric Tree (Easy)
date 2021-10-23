@@ -1,0 +1,20 @@
+def func(root,sroot):
+    ##create a function to compare whether two trees are same
+    def sametree(r,s):
+        if not r and not s:
+           return True
+        if not r or not s:
+           return False
+        return r.val==s.val and sametree(r.left,s.left) and sametree(r.right,s.right)
+    
+    
+    ## interate the whole tree by using the two same function
+    if not root and not sroot:
+       return True
+    if not root or not sroot:
+       return False
+    return sametree(root,sroot) or func(root.left,sroot) or func(root.right,sroot)
+    
+       
+       
+        
