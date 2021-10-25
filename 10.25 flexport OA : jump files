@@ -1,0 +1,11 @@
+given a array, find that whether there is chance to jump form the beginning to the end of the array:
+Method 1: form the behginning to the end
+def func(arr):
+    rightmost,l=0,len(arr)
+    for i in range(l):
+        if i <= rightmost:
+           rightmost=max(rightmost, rightmost+arr[i])
+           if rightmost>=l-1:
+              return True
+    return False
+        
