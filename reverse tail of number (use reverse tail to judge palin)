@@ -1,0 +1,9 @@
+def func(num):
+    if num==0:
+       return 0
+    a=0
+    l=len(str(num))
+    for i in range(l):
+        a=a*10+num%10
+        num=num/10
+        
