@@ -1,0 +1,10 @@
+find Longest Harmonious Subsequence (max-min<=1)
+def func(nums):
+    dic={}
+    for i in nums:
+        dic[i]=dic.get(i,0)+1     ####按顺序计算nums里面每个元素出现的次数
+    res=0
+    for i in dic:
+        if i+1 in dic:
+           res=max(res,dic.get(i),dic.get(i+1))
+    return res
