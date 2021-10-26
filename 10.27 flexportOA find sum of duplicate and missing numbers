@@ -1,0 +1,16 @@
+[1,2,2,4] 2+3=5  [1,2,4]
+1 find the missing number:
+use hash table
+def func(nums):
+    nums_set=set(nums)
+    for i in range(len(nums)+1):
+        if i not in nums_set:
+           return i
+
+2 find the duplicate number:
+sum(nums)-sum(set(nums))
+
+
+
+    
+    
