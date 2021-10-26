@@ -1,0 +1,16 @@
+def func(nums,k):
+    current=1
+    ptr=0
+    misscount=0
+    a=-1
+    while misscount<k:
+          if current==nums[ptr]:
+             if ptr+1<len(nums):
+                ptr+=1
+          else:
+              misscount+=1
+              a=current
+          current+=1
+          return a
+          
+    
