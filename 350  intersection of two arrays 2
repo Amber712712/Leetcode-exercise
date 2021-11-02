@@ -1,0 +1,15 @@
+Given two integer arrays nums1 and nums2, return an array of their intersection. Each element in the result must appear as many times as it shows in both arrays and you may return the result in any order.
+def finc(num1,num2):
+    num1.sort()
+    num2.sort()
+    i,j=0,0
+    l=list()
+    while i<len(num1) and j<len(num2):
+         if num1[i]==num2[j]:
+            l.append(num1[i])
+         elif num[i]<num[j]:
+            i+=1
+         else:
+            j+=1
+   
+
