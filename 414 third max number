@@ -1,0 +1,9 @@
+def func(nums):
+    nums.sort(Reverse=True)
+    diff=1
+    for i in range(1,len(nums)):
+        if nums[i]!=nums[i-1]:
+           diff+=1
+           if diff==3:
+              return nums[i]
+    return nums[0]
