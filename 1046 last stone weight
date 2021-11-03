@@ -1,0 +1,11 @@
+###注意python 没有大根堆，需要求负数来搭建小根堆
+def func(nums):
+    heap=[-num for num in nums]
+    heapq.heapify(heap)
+    while len(heap)>1:
+      max1,max2=heapq.heappop(heap),heapq.heappop(heap)
+      if max1!=max2:
+         heapq.heappush(heap,max1-max2)
+    if heap:
+       return -heap[0]
+    return 0
