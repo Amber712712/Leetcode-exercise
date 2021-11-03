@@ -1,0 +1,14 @@
+def func(nums):
+    def quicksort(nums, l, r):
+        par=nums[l]
+        begin=l
+        while l<r:
+             while l<r and nums[r]<=par:
+                   r-=1
+             while l<r and nums[l]>=par:
+                   l+=1
+             if l < r:
+                nums[l], nums[r] = nums[r], nums[l]
+         nums[begins],nums[l]=nums[l],nums[begins]
+         
+   
