@@ -1,14 +1,45 @@
-def func(nums):
-    def quicksort(nums, l, r):
-        par=nums[l]
-        begin=l
-        while l<r:
-             while l<r and nums[r]<=par:
-                   r-=1
-             while l<r and nums[l]>=par:
-                   l+=1
-             if l < r:
-                nums[l], nums[r] = nums[r], nums[l]
-         nums[begins],nums[l]=nums[l],nums[begins]
-         
+1 use qiucksort 
+
+def func(nums,K):
+   l=0
+   r=len(nums)-1
    
+   while True:
+     index=quicksort(nums,l,r)
+     if index==K-1:
+        return nums[index] ###取前K大 nums[:index+1] 
+     elif index<K-1:
+        l=index+1
+     else:
+        r=index-1
+        
+
+   def quicksort(nums,l,r):
+       partition=nums[l]
+       begin=l
+       while l<r:
+          while l<r and nums[r]<=partition:
+            r-=1
+          while l<r and nums[l]>=partition:
+            l+=1
+          if l<r:
+            nums[l],nums[r]=nums[r],nums[l]
+        return l
+       
+       
+2 use heap:
+
+def func(nums):
+    heap=[]
+    for num in nums:
+      heapq.heappush(heap,num)
+      if len(heap)>k:
+         heapq.heappop(heap)
+    return heap[0]
+    
+def func2(nums):
+    heapq.heapify(nums)
+    while eln(nums)>k:
+      heapq.heappop(nums)
+    return nums[0]
+      
