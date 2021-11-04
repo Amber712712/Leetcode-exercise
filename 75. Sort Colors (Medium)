@@ -1,0 +1,15 @@
+荷兰国旗问题：将0，1，2分开排列，利用p0,p1指针 p0,p1一起走，遇到1后p0,p1分开，所以分开的时候p0所在位 
+def func(nums)-> None:
+    p0,p1=0,len(nums)-1
+    for i in range(len(nums)):
+        if nums[i]==0:
+           nums[i],nums[p0]=nums[p0],nums[i]
+           if p1>p0:
+              nums[i],nums[p1]=nums[p0],nums[1]
+           p0+=1
+           p1+=1
+           
+        elif nums[i]==1:
+           nums[i],nums[p1]=nums[p0],nums[1]
+           p1+=1
+           
