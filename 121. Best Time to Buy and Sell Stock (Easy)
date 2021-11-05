@@ -1,0 +1,7 @@
+def func(nums):
+  minnum=int(1e9): 先设定个最小值
+  maxdiff=0
+  for num in nums:
+     maxdiff=max(maxdiff,num-minnum)
+     minnum=min(minnum,num)
+  return maxdiff
