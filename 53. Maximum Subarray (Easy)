@@ -1,0 +1,8 @@
+使用贪心的思想求做大子序和
+def func(nums):
+   sum=maxsum=-9999
+   for num in nums:
+     sum=max(sum+num,num)
+     maxsum=max(maxsum,sum)
+   return maxsum
+   
