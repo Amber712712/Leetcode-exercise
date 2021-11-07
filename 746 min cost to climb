@@ -1,0 +1,5 @@
+def func(nums):
+   df=[0]*(len(nums)+1)
+   for i in range(2,len(nums)+1):
+      dp[i]=min(dp[i-1]+nums[i-1],dp[i-2]+nums[i-2])
+   return dp[-1]
