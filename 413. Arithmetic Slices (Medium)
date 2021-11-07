@@ -1,0 +1,16 @@
+查看数列里所有等差数列的个数（等差数列里数个数需要大于等于3）
+def func(nums):
+   if not nums or len(nums)<=2:
+      return 0
+   n=len(nums)
+   dp=[0]*n
+   ans=0
+   
+   for i in range(2,n):
+      if dp[i]-dp[i-1]=dp[i-1]=dp[i-2]:
+         dp[i]=dp[i-1]+1
+         ans+=dp[i]
+         
+    return ans
+      
+      
