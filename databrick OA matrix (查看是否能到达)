@@ -1,0 +1,31 @@
+def labyrinthEscape(n: int, m: int, obstacles, teleports) -> bool:
+    # Create set/dict of positions of teleports and obstacle cells
+    obstacle_cells = set([(x, y) for x, y in obstacles])
+    teleport_cells = {}
+    for cells in teleports:
+        start_cell = (cells[0], cells[1])
+        end_cell = (cells[2], cells[3])
+
+        teleport_cells[start_cell] = end_cell
+
+    visited_cells = set()
+    current_position = (0, 0) # starting position
+
+    while True:
+        current_row, current_column = current_position[0], current_position[1]
+        # Exit conditions
+        if current_position == (n - 1, m - 1): # Successfully escaped
+            return True
+        if current_position in obstacle_cells:
+            return False
+        if current_position in visited_cells: # Infinite loop found
+            return False
+        if current_column >= m: # Out of bounds
+            return False
+
+        visited_cells.add(current_position)
+
+        if current_position not in teleport_cells:
+            current_position = (current_row, current_column + 1) # move right
+        else:
+            current_position = teleport_cells[current_position] # teleport to new position
