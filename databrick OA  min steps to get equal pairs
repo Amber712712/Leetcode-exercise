@@ -1,0 +1,22 @@
+def func(nums):
+   if not nums:
+     return -1
+   odd=[]
+   even=[]
+   if len(nums)%2!=0:
+     return -1
+   for i in nums:
+     if i%2==0:
+        even.append(i)
+     odd.append(i)
+   
+   判断奇数偶数长度是不是都是偶数：
+   if len(odd)%2!=2 or ...:
+     return -1
+     
+   even.sort()
+   odd.sort()
+   
+   even: (sum(even)-sum(even[::2])-sum(even[::2]))/2
+   
+   
