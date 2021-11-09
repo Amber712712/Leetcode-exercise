@@ -1,0 +1,23 @@
+使用深度搜索：确定边界
+def func(list):
+m=len(list) n=len(list[0])
+def dfs(currow,curcol):
+   ans=0   if currow<0 or curcol<0 or currow==len(list) or curcol==len(list[0]) or list[currow][curcol]!=1:  ###确定边界，返回为0的条件
+     return 0
+   
+   else:
+     list[currow][curcol]==0  ####以免重新算，赋值为0
+     
+   for i,j in [[0, 1], [0, -1], [1, 0], [-1, 0]]:
+     nextrow,nextcol=currow+i,corcol+j
+     ans+=dfs(nextrow,nextcol)
+   
+   return ans
+res=0
+for i in range(m):
+  for j in range(n):
+     if list[i][j]:
+       res=max(res,dfs(i,j))
+   
+   
+   
