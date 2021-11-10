@@ -1,0 +1,1 @@
+mistake: range(len(nums),1,-1) Pat attention to last -1!!!!!!!
