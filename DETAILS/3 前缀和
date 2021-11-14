@@ -1,0 +1,6 @@
+ self.sums = [0]
+        _sums = self.sums
+
+        for num in nums:
+            _sums.append(_sums[-1] + num)
+
