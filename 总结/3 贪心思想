@@ -1,0 +1,33 @@
+1 分配饼干问题：
+def func(child,cake):
+    child.sort()
+    cake.sort()
+    i,j,res=0,0,0
+    while i <len(child) and j < len(cake):
+      if child[i]>cake[j]:
+         j+=1
+      elif:
+         i+=1
+         j+=1
+         res+=1
+     return res
+     
+2  不重复区间问题（最少删去几个区间剩下区间不重复）：
+def func(nums):
+   if not nums:
+     return 0
+   nums.sort(key=lambda x:x[1])
+   a=nums[0][1]
+   i=1
+   res=0
+   while i < len(nums):
+     if nums[i][0]<a:
+        res+=1
+     else:
+        a=nums[i][1]
+    return res
+    
+3  Minimum Number of Arrows to Burst Balloons (查看有多少不重复区间)
+
+     
+     
