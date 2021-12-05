@@ -25,9 +25,26 @@ def func(nums):
         res+=1
      else:
         a=nums[i][1]
-    return res
+    return res    ###这里是计算的删去多少的区间才满足条件
     
-3  Minimum Number of Arrows to Burst Balloons (查看有多少不重复区间)
+3  Minimum Number of Arrows to Burst Balloons (查看有多少不重复区间) ###从一开始计算的是不重复区间
+4 Best Time to Buy and Sell Stock （一次买一次卖，找出最大收益）
+def func(nums):
+   minp=int(1e9)
+   maxincome=0
+   for i in range(len(nums)):
+     maxincome=max(maxincome,nums[i]-minp)
+     minp=min(minp,nums[i])
+   
+   return maxincome
+
+5 Best Time to Buy and Sell Stock II (可以进行多次交易，多次交易之间不能交叉进行，可以进行多次交易)
+def func(nums):
+   res=0
+   for i in range(1,len(nums)):
+      if nums[i]>nums[i-1]:
+         res+=nums[i]-nums[i-1]
+   return res
 
      
      
