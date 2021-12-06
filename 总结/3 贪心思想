@@ -54,5 +54,65 @@ for i in range(1,len(nums)-1):
      n-=1
 return n<=0
 
+##7 子序列
+def func(num1,num2):
+i,j=0,0
+res=0
+while i<len(num1) and j<len(num2):
+  if num1[i]==num2[j]:
+    i+=1
+  j+=1
+  
+return i==len(num1)   ###注意这里， i已经被加上1了，已经等于len(num1)了
      
-     
+8 修改一个数成为非递减数组 
+用三个数进行控制：i-1 i i+1  ###注意 [4,2,3] i发生在第二位，所以使得nums[i-1]=nums[i]
+def func(nums):
+res=0
+if not nums:
+  return True
+for i in range(1,len(nums)):
+  if nums[i]<nums[i-1]:
+     res+=1
+     if nums[i-2] <nums[i]: 
+        nums[i-1]=nums[i]
+     else:
+        nums[i]=nums[i-1]
+return res ###修改多少次可以改为非递减数组
+
+9 最大子序列
+贪心：
+def func(nums):
+   prev=res=-100000
+   for i in nums:
+      prev=max(prev+i,i)
+      ret=max(prev,ret)
+   return ret
+动态规划：####  dp[i]：包括下标i之前的最大连续子序列和为dp[i]
+def func(nums):
+
+    if not nums:
+       return 0
+    dp=[0]*len(nums)
+    dp[0]=nums[0]
+    res=dp[0]
+    for i in range(1,len(nums)):
+       dp[i]=max(dp[i-1]+nums[i],nums[i])
+       res=max(res,dp[i])
+    return res
+
+11 分隔字符串使同种字符出现在一起
+def func(nums):
+   max_index={item:i for i, item in enumerate(nums)} ###更新得到每个元素最后的位置
+   s,e=0,0
+   ans=[]
+   for idx,i in enumerate(nums):
+       end=max(end,max_index[i])
+       if idx==end:
+          ans.append[e-s+1]
+          s=idx+1###更新开头位置
+   return ans
+   
+
+
+
