@@ -116,5 +116,28 @@ def func(num):
     return dp[-1]
     
     
-    
+8 解码问题  233：[23,3][2,3,3] ans=2 有多少解码方法  ####注意为了方便，需要在s前加“ ” 增长1长度
+def func(s):
+    if not s or s[0]=='0':
+       return 0
+    s=" "+s
+    dp=[0]*len(s)
+    dp[0]=dp[1]=1
+    for i in range(2,len(s)):    分两种情况讨论：若加的为0 和不为0
+   
+        if s[i]=='0':
+           if s[i-1]=='1' or s[i-1]=='2': 只能和前面的绑定
+              dp[i]=dp[i-2]
+           else:
+              return 0             不能拆分
+        else:
+            if s[i-1]=='1' or (s[i-1]=='2' and "1"<=s[i]<="6"):
+              dp[i]=dp[i-1]+dp[i-2]      
+            else:
+              dp[i]=dp[i-1]        只能拆分开
+           
+       return dp[-1]
+9 若0到25代表a 到 z ，不需要考虑0，只需考虑i 与i-1 能否绑定， 若可以，dp[i]=dp[i-1]+dp[i-2], 诺不能（只能拆分），dp[i]=dp[i-1]
+10 最长递增子序列
+
             
