@@ -116,7 +116,9 @@ def func(num):
     return dp[-1]
     
     
-8 解码问题  233：[23,3][2,3,3] ans=2 有多少解码方法  ####注意为了方便，需要在s前加“ ” 增长1长度
+8 解码问题  233：[23,3][2,3,3] ans=2 有多少解码方法  
+####注意为了方便，需要在s前加“ ” 增长1长度
+使得两个长度一样
 def func(s):
     if not s or s[0]=='0':
        return 0
@@ -139,5 +141,18 @@ def func(s):
        return dp[-1]
 9 若0到25代表a 到 z ，不需要考虑0，只需考虑i 与i-1 能否绑定， 若可以，dp[i]=dp[i-1]+dp[i-2], 诺不能（只能拆分），dp[i]=dp[i-1]
 10 最长递增子序列
+def func(nums):
+    if not nums:
+       return 0
+    dp=[]
+    for i in range(len(nums)):
+        dp.append(1)
+        for j in range(i):
+            if nums[i]>nums[j]:
+               dp[i]=max(dp[i],dp[j]+1)
+11 最长递增子序列=最多对数问题=最多无重叠区间=气球问题（动态规划或贪心）
+12 
+
+               
 
             
