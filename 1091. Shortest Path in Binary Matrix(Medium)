@@ -1,0 +1,21 @@
+使用dfs 广度优先搜索找最短路径
+使用queue queue.pop()可以记录pop出的值
+def func(grid):
+    if not grid or gird[0][0]==1 or grid[-1][-1]==1:
+       return -1
+    n=len(grid)
+    if n<=2:
+       return n
+    queue=[(0,0,1)]
+    grid[0][0]=1
+    while queue:       若道路不通，则跳出循环  
+          i,j,step=queue.pop(0)
+          for i1,j1 in [(-1,0),(1,0),(0,1),(0,-1),(1,1),(1,-1),(-1,1),(-1,-1)]:
+              if i+i1==n-1 and j+j1==n-1:
+                 return step
+              if 0<=i+i1<=n-1 and 0<=j+j1<=n-1 and grid[i+i1][j+j1]==0:
+                 queue.append((i+i1,j+j1,step+1))
+                 grid[i+i1][j+j1]=1
+          return -1
+          
+          
