@@ -1,6 +1,14 @@
 BFS 使用Queue
 1 对于最小路径问题，求最短路径不管是图，还是其他step
 bfs适应性很强
+def func(grid):
+    if grid[0][0]==1 or grid[-1][-1]==1:
+       return -1
+    if len(grid)<=2:
+       return len(grid)
+    queue=[(0,0,1)]
+    grid[0][0]=1
+    
 
 2 整数最少分成的平方数
 def func(nums):
@@ -19,6 +27,6 @@ def func(nums):
                  elif t not in visited:
                     visited.add(t)
                     Q.append(t)   #####注意需要添加新的queue值
-              step+=1
+         step+=1
           return step
 
