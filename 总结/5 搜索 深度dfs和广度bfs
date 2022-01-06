@@ -1,0 +1,24 @@
+BFS 使用Queue
+1 对于最小路径问题，求最短路径不管是图，还是其他step
+bfs适应性很强
+
+2 整数最少分成的平方数
+def func(nums):
+    Q=collections.deque()
+    visited=set()
+    step=1
+    Q.append(nums)
+    while Q:
+         n=len(Q)
+         for i in range(n):
+             x=Q.popleft()
+             for y in range(1,int(sqrt(nums)+1)):
+                 t=x-y**2
+                 if t==0:
+                    return step
+                 elif t not in visited:
+                    visited.add(t)
+                    Q.append(t)   #####注意需要添加新的queue值
+              step+=1
+          return step
+
