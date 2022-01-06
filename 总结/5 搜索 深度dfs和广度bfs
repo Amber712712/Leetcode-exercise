@@ -8,6 +8,9 @@ def func(grid):
        return len(grid)
     queue=[(0,0,1)]
     grid[0][0]=1
+    while queue:
+       for i1,j1 in [(),(),...]:
+           if 
     
 
 2 整数最少分成的平方数
