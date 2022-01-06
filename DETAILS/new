@@ -1,0 +1,9 @@
+pop 和popleft:
+pop 是stack list 中pop(0),popleft()不带参数,在collections中 
+
+from collections import deque
+name=deque(["jean","li","na"])
+name.append("yang")
+name.append("chun")
+print(name.popleft())
+
