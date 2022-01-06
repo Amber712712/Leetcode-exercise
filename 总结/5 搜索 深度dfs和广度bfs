@@ -1,6 +1,6 @@
 BFS 使用Queue
 1 对于最小路径问题，求最短路径不管是图，还是其他step
-bfs适应性很强
+bfs适应性很强 : 使用queue while queue 作为标志
 def func(grid):
     if grid[0][0]==1 or grid[-1][-1]==1:
        return -1
@@ -9,8 +9,15 @@ def func(grid):
     queue=[(0,0,1)]
     grid[0][0]=1
     while queue:
+       i,j,s=queue.pop(0)
        for i1,j1 in [(),(),...]:
-           if 
+           if i+i1==len(grid)-1 and j+j1==len(grid)-1:
+              return step+1
+           if 0<=i+i1<len(grid) and 0<=j+j1<len(grid) and grid[i+i1][j+j1]==0:
+              grid[i+i1][j+j1]=1
+              queue.append((i+i1,j+j1,s+1))
+    return -1
+            
     
 
 2 整数最少分成的平方数
