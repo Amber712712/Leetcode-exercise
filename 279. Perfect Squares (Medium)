@@ -1,0 +1,19 @@
+动规
+dfs: 三要素： queue visited return的时机
+def func(nums):
+    Q=collections.deque()
+    visited=set()
+    step=1
+    Q.append(nums)
+    while Q:
+          for i in range(len(Q)):
+              x=Q.popleft()
+              for y in range(1,int(sqrt(x))+1):
+                  t=x-y**2
+                  if t==0:
+                     return step
+                  elif t not in visitded:
+                     visited.add(t)
+                     Q.append(t)
+           step+=1
+           
