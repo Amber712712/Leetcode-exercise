@@ -1,1 +1,12 @@
 思想：先寻找每个词出现的最大位置，然后等到到遍历到哪个位置时分割
+def func(nums):
+    dic={i:last for last,i in enumerate(nums)}
+    e=0
+    s=0
+    l=[]
+    for index,i in enumerate(nums):
+        e=max(dic[i],e)
+        if index==e:
+           l.append(e-s+1)
+           s=e+1    ####注意当分割后s才变化
+    return l
