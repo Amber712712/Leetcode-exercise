@@ -1,0 +1,17 @@
+与1679题相同 找出max num of k sum pairs
+
+def func(nums):
+    from collections import Counter
+    num.sort()
+    dic=Counter(nums)
+    res1=0
+    for k in range(nums[0]+nums[1],nums[-1]+nums[-2]+1):
+        res=0
+        for n in dic:
+            if n*2==k:
+               res+=dic[n]//2
+            else:
+               if n*2<k and k-n in dic:
+                  res+=min(dic[n],dic[k-n])
+         res1=max(res1,res)
+     return res1
