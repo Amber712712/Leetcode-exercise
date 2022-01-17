@@ -1,0 +1,9 @@
+def func(s):
+    n=len(s)
+    res=s[0]
+    for i in range(0,n-1):
+        for j in range(i+1,n):
+            if s[i]==s[j]:
+               if j-i+1>len(res):
+                  res=s[i:j+1]
+    return res
