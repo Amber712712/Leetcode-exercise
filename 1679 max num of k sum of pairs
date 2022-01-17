@@ -1,0 +1,10 @@
+def func(nums,k):
+    dic=Counter(nums)
+    res=0
+    for n in dic:
+        if n*2==k:
+           res=dic[n]//2
+        else:
+           if n*2<k and k-n in dic:
+              res=min(dic[n],dic[k-n])
+     return res
