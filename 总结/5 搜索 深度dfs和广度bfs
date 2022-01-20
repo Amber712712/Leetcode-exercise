@@ -1,4 +1,5 @@
 BFS 使用Queue
+三要素：QUEUE pop 以及visited
 1 对于最小路径问题，求最短路径不管是图，还是其他step
 bfs适应性很强 : 使用queue while queue 作为标志
 def func(grid):
@@ -20,7 +21,7 @@ def func(grid):
             
     
 
-2 整数最少分成的平方数
+2 整数最少分成的平方数     二叉树层级遍历  
 def func(nums):
     Q=collections.deque()
     visited=set()
@@ -39,4 +40,51 @@ def func(nums):
                     Q.append(t)   #####注意需要添加新的queue值
          step+=1
           return step
+          
+ 3 层级遍历二叉树
+ def func(root):
+ queue=collections.deque()
+ queue.append(root)
+ res=[]
+ if not root:
+    return []
+ while queue:
+       level=[]
+       for i in range(len(queue)):
+           r=queue.popleft()
+           level.append(r.val)
+           if not r.left:
+              queue.append(r.left)
+           if not r.left:
+              queue.append(r.right)
+        
+        res.append(level)
+ 4 求二叉树层级最大值
+ def func(root):
+     queue=collections.deque()
+     queue.append(root)
+     res=[]
+     while queue:
+           max1=float('-inf')
+           for i in range(len(queue)):
+               r=queue.popleft()
+               
+               max1=max(max1,r.val)
+               if not r.left:
+              queue.append(r.left)
+               if not r.left:
+              queue.append(r.right)
+           res.append(max1)
+     return res
+     
+     
+     
+深度搜索 dfs
+1 
+           
+           
+       
+           
+          
+  
 
