@@ -1,5 +1,8 @@
 BFS 使用Queue
 三要素：QUEUE pop 以及visited
+注意最小距离和最大距离（最小距离）所使用的step是不一样的 
+最小距离：需要和i,j,s一起入queue    最大距离（最小距离）：直接用step计数
+
 1 对于最小路径问题，求最短路径不管是图，还是其他step
 bfs适应性很强 : 使用queue while queue 作为标志
 def func(grid):
@@ -91,7 +94,7 @@ def func(grid):
                   if 0<x+x1<n and 0<y+y1<n and grid[x+x1][y+y1]==0:
                      
                      grid[x+x1][y+y1]==-1
-                     queue.append([x+x1,y+y1])
+                     queue.append([x+x1,y+y1])  
               step+=1
           return step-1 #######注意这里曾多加了一个
           
