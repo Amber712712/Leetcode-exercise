@@ -100,8 +100,25 @@ def func(grid):
           
     
      
-深度搜索 dfs
-1 
+
+
+深度搜索 dfs (递归)
+
+1 最大海岛面积
+def func(grid):
+r=len(grid) 
+c=len(grid[0])
+res=0
+def dfs(i,j):
+    if i<0 or i==r or j<0 or j==c or grid[i][j]!=1:
+       return 0
+    grid[i][j]=0
+    return 1+dfs(i+1,j)+dfs(i-1,j)+...
+   
+for i in range(r):
+    for j in range(c):
+        res=max(res,dfs(r,c))
+return res
            
            
        
