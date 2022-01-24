@@ -103,6 +103,7 @@ def func(grid):
 
 
 深度搜索 dfs (递归)
+注意递归的结束条件  不符合条件时return 0
 
 1 最大海岛面积
 def func(grid):
@@ -119,10 +120,122 @@ for i in range(r):
     for j in range(c):
         res=max(res,dfs(r,c))
 return res
-           
-           
-       
-           
-          
-  
 
+2 海岛数量
+def func(grid):
+    r=len(grid) 
+    c=len(grid[0])
+    def dfs(i,j):
+        if i<0 or i==r or j<0 or j==c or grid[i][j]!=1:
+           return 0
+        grid[i][j]=0
+        dfs(i+1,j)
+        dfs(i-1,j)
+        ...
+        
+     count=0
+     for i in range(r):
+         for j in range(c):
+             if grid[i][j]=="1":
+                dfs(i,j)
+                count+=1
+     return count
+     
+     
+     
+3 连通的海岛数量
+目的是创造visited, 并不断更新visited
+
+def func(grid):
+    visited=set()
+    count=0
+    
+    def dfs(i):
+        for j in range(len(grid)):
+            if grid[i][j]==1 and j not in visited:
+               visited.add(j)
+               dfs(j)
+               
+    for i in range(len(grid)):
+        if i not in visited:
+           dfs(i)
+           count+=1
+return count
+
+4 除了边界上的0，其他被包围的0要变为x
+利用dfs来将符合条件的格子标志
+
+x x x x   
+x 0 0 x
+x x x x
+x 0 x x
+
+def func(grid):
+    if not grid:
+       return []
+    def dfs(i,j):
+        if not 0<=i<len(grid) or not 0<=j<len(grid[0]) or grid[i][j]!="0":
+           return []
+        grid[i][j]="A"
+        dfs(i+1,j)
+        dfs(i-1,j)
+        ...
+        
+        for i in range(len(grid)):
+            dfs(i,0)
+            dfs(i,len(grid[0]))
+        for j in range(len(grid[0]):
+            dfs(0,i)
+            dfs(len(grid),i)
+            
+        for i in range():
+            for j in range():
+                if grid[i,j]="A":
+                   grid[i,j]="0"
+                elif grid[i,j]="0":
+                     grid[i,j]="X"
+                     
+    
+    
+5 太平洋大西洋交汇处
+def pacificAtlantic(self, heights: List[List[int]]) -> List[List[int]]:
+        m,n=len(heights),len(heights[0])
+        pacific=[[0]*n for i in range(m)]
+        atlantic=[[0]*n for i in range(m)]
+        dis=[[-1,0],[1,0],[0,-1],[0,1]]
+        for i in range(m):
+            pacific[i][0]=1
+        for i in range(n):
+            pacific[0][i]=1
+        for i in range(m):
+            atlantic[i][n-1]=1
+        for i in range(n):
+            atlantic[m-1][i]=1
+        def dfs1(r,c):
+            for i in dis:
+                x=r+i[0]
+                y=c+i[1]
+                if 0<=x<=m-1 and 0<=y<=n-1 and heights[x][y]>=heights[r][c] and pacific[x][y]==0:
+                    pacific[x][y]=1
+                    dfs1(x,y)
+        def dfs2(r,c):
+            for i in dis:
+                x=r+i[0]
+                y=c+i[1]
+                if 0<=x<=m-1 and 0<=y<=n-1 and heights[x][y]>=heights[r][c] and atlantic[x][y]==0:
+                    atlantic[x][y]=1
+                    dfs2(x,y)
+        for i in range(m):
+            dfs1(i,0)
+        for i in range(n):
+            dfs1(0,i)
+        for i in range(m):
+            dfs2(i,n-1)
+        for i in range(n):
+            dfs2(m-1,i)
+        ans=[]
+        for i in range(m):
+            for j in range(n):
+                if pacific[i][j]==1 and atlantic[i][j]==1:
+                    ans.append([i,j])
+        return ans
