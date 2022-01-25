@@ -1,7 +1,15 @@
 BFS 使用Queue
+模板：二叉树的层级模式(step, 层级分别是哪些，层级最大)
+step=0
+visited=set()
+while queue:
+      for i in range(len(queue)):
+          x=queue.pop(0)/popleft()
+          
 三要素：QUEUE pop 以及visited
-注意最小距离和最大距离（最小距离）所使用的step是不一样的 
+##注意最小距离和最大距离（最小距离）所使用的step是不一样的 
 最小距离：需要和i,j,s一起入queue    最大距离（最小距离）：直接用step计数
+
 
 1 对于最小路径问题，求最短路径不管是图，还是其他step
 bfs适应性很强 : 使用queue while queue 作为标志
@@ -44,7 +52,7 @@ def func(nums):
          step+=1
           return step
           
- 3 层级遍历二叉树
+ 3 层级遍历二叉树 
  def func(root):
  queue=collections.deque()
  queue.append(root)
@@ -103,6 +111,8 @@ def func(grid):
 
 
 深度搜索 dfs (递归)
+dfs:
+
 注意递归的结束条件  不符合条件时return 0
 
 1 最大海岛面积
@@ -120,6 +130,25 @@ for i in range(r):
     for j in range(c):
         res=max(res,dfs(r,c))
 return res
+
+也可用bfs做： 
+def func(grid):
+    def bfs(i,j):
+        grid[i][j]=0
+        queue=[(i,j)]
+        area=1
+        while queue:
+              for x,y in [(),()...]:
+                  if 0<=i+x<len(gird) and 0<=j+y<len(gird[0]) and grid[i+x][j+y]==1:
+                     grid[][]=0
+                     area+=1
+                     queue.append((i+x,y+j))
+        return area
+     res=0
+     for i in range():
+         for j in range():
+             if grid[i][j]==1:
+                res=max(res,bfs(i,j))
 
 2 海岛数量
 def func(grid):
