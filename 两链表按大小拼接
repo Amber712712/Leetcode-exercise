@@ -11,5 +11,18 @@ def func(l1,l2):
        
 迭代：
 def func(l1,l2):
+    dummy=p=ListNode(0)
+    while l1 or l2:
+          if l1.val<l2.val:
+             p.next=l1
+             
+             l1=l1.next
+             
+          else:
+             p.next=l2
+             l2=l2.next
+          p=p.next
+          p.next=l1 if l1 else l2
+     return dummy.next
     
        
