@@ -1,0 +1,15 @@
+递归
+def func(l1,l2):
+    if not l1:
+       returnl2
+    elif not l2:
+       return l1
+    elif l1.val<l2.val:
+       l1.next=func(l1.next,l2)
+       return l1
+    else:
+       
+迭代：
+def func(l1,l2):
+    
+       
