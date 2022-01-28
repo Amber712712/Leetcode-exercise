@@ -161,6 +161,19 @@ def func(nums):         dp存储的是i位置无重复区间的个数
             if nums[i][0]>nums[j][1]:
                dp[i]=max(dp[i],dp[j]+1)
     return max(dp)或者len(nums)-max(dp)
+最长等差数列:
+用字典存储dp[i][diff]=step 
+def func(nums):
+    if not nums:
+       return 0
+    n=len(nums)
+    dp={} #####用字典而不是list
+    for i in range(1,n):
+        for j in range(i):
+            dp[(i,nums[i]-nums[j])]=dp.get((j,nums[i]-nums[j]),1)+1
+            
+    return max(dp.values())
+    
 12 最长摆动子序列  https://leetcode-cn.com/problems/maximum-length-of-pair-chain/solution/chuan-shang-yi-fu-wo-jiu-bu-ren-shi-ni-liao-lai--2/
 def func(nums):
     if len(nums)<2:
