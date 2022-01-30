@@ -1,0 +1,15 @@
+1 heap
+def func(lists):
+    import heapq     ####将链放入heap
+    h=[]
+    for l in lists:
+        while l:
+              heapq.heappush(h,l.val)
+              l=l.next
+              
+    dummy=p=ListNode(0)
+    while h:
+          p.next=ListNode(heapq.heappop(h))
+          p=p.next
+          
+    return dummy.next
