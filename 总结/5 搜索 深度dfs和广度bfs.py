@@ -112,6 +112,32 @@ def func(grid):
 
 深度搜索 dfs (递归)
 dfs:
+树的最大高度
+dfs:
+def func(root):
+      if not root:
+            return 0
+      return max(func(root.left),func(root.right))+1
+Bfs:
+def func(root):
+      if not root:
+            return 0
+      queue=[root]
+      step=0
+      while queue:
+            for i in range(len(queue)):
+                  r=queue.pop(0)
+                  if r.left:
+                        queue.append(r.left)
+                  if r.right:
+                        queue.append(r.right)
+             step+=1
+      return step
+                  
+
+树的最小高度
+
+
 
 注意递归的结束条件  不符合条件时return 0
 
