@@ -83,6 +83,71 @@ def func(root):
       
   return queval
     
+8 A树是否包含B树
+BFS
+def func(a,b):
+  def help(a,b):
+    queue=[(a,b)]
+    while queue:
+      a,b=queue.pop(0)
+      if not a or a.val!=b.val:   ####限制范围是a树历遍完或者两值不同
+        return False
+      if b.left:
+        queue.append(b.left)
+      if b.right:
+        queue.append(b.right)
+    return True
+  
+  if not b:
+    return False
+  queuea=collections.deque([a])
+  while queuea:
+    node=queuea.pop(0)
+    if node.val==b.val:
+      if help(node,b):
+        return True
+    if node.left:
+      queuea.append(node.left)
+    if ndoe.right:
+      queuea.append(node.right)
+  return False
+9 是否包含子树
+def func(a,b):
+  if not a and not b:
+    return True
+  if not a or not b:
+    return False
+  return func(a,b) or func(a.left,b.left) or func(a.right,b.right)  ##从开头开始dfs
+
+  
+  def dfs(a,b):
+    if not a and not b:
+      return True
+    if not a or not b:
+      return False
+    if a.val!=b.val:
+      return False
+    return dfs(a.left,b.left) and dfs(a.right,b.right)
+      
+10 左叶子之和
+BFS：
+def func(root):
+  if not root:
+    return 0
+  res=0
+  isleft=lambda node not node.left and nort node.right
+  q=collections.deque([root])
+  while q:
+    r=q.popleft()
+    if r.left:
+      if isleft(r.left):
+        res+=r.left.val
+      else:
+      q.append(r.left)
+    if r.right:
+      q.append(r.right)
+      
+    
       
     
     
