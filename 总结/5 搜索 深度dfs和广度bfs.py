@@ -235,6 +235,14 @@ def func(grid):
         dfs(i+1,j)
         dfs(i-1,j)
         ...
+  ##method 2
+    def dfs(i,j):
+            grid[][]=='1' ####需要在这里转换格子
+            for x,y in [(),()...]:
+                  if 0<i+x<=len(grid) and 0<j+y<=len(grid[0]) and grid[][]=="0":
+                        
+                        dfs(i+x,j+y)
+                        
         
         for i in range(len(grid)):
             dfs(i,0)
