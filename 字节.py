@@ -12,4 +12,16 @@ def func(t1,t2):
         dp[i][j]=max(dp[i-1][j],dp[i][j-1])
   return dp[m][n]
 
+2 冒泡排序/快慢指针 来使得数列里的0到最后
+def func(nums):
+  i,j=0,0
+  while j <len(nums):
+    if j!=0:
+      nums[i]=nums[j]
+      i+=1
+  j+=1
+      
+def func(nums):
+  
+
 
