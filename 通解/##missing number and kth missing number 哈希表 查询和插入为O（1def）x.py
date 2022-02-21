@@ -4,3 +4,7 @@ def func(nums):
         if i not in s:
            return i
            
+
+def func(arr,k):
+    l=[i for i in range(arr[-1]+k+1)]  ###补0使得后面的引索值
+    
