@@ -239,8 +239,39 @@ def func(root):
     if r.right:
       q.append(r.right)
       
-    
+11 填充二叉树节点的右侧指针
+dfs:
+  def connect(self, root: 'Optional[Node]') -> 'Optional[Node]':
+        if not root:
+            return None
+        self.dfs(root.left,root.right)
+        return root
+
+    def dfs(self,node1,node2):
+        if not node1 or not node2:
+            return None
+        node1.next=node2
+        self.dfs(node1.left,node1.right)
+        self.dfs(node2.left,node2.right)
+        self.dfs(node1.right,node2.left)
+Bfs:
+  def func(root):
+    if not root:
+      return None
+    queue=collections.deque([root])
+    while queue:
+      for i in range(len(queue)):
+        r=queue.pop(0)
+        for i <len(queue)-1:
+          r.next=queue[0]
+        
+        if r.left:
+          queue.append(r.left)
+        if r.right:
+          queue.append(r.right)
+          
       
+ 
     
     
     
