@@ -7,16 +7,32 @@ def func(self, root):
       return 0
     l=dfs(root.left)
     r=dfs(root.right)
-    self.ans=max(self.ans,l+r+1)
-    return max(l,r)+1
+    self.ans=max(self.ans,l+r+1) 
+    return max(l,r)+1  ###每个节点返回的是最大高度  然后用全局变量来计算和最大
+ 
   dfs(root)
   return self.ans-1
+时间复杂度为O（N）
+
+###计算每个节点左右树分别有多少节点
+def func(self,root):
+  if not root:
+    return 0
+  left=self.func(root.left)
+  right=self.func(root.right)
+  print('',root, left, right)
+  return 1+left+right
+
+
+  
+  
 
 2 最大高度 (后序排列)
 def func(root):
   if not root:
     return 0
   return max(func(root.left),func(root.right))+1
+时间o(n)
   
 3 前中后序遍历
 前序：
