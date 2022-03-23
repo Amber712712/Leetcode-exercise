@@ -24,14 +24,27 @@ def func(root):
         return True 
  DFS:
   def func(root):
+    if not root:
+      return False
+    return func1(root.left,root.right)
+      
     
     def func1(left,right):
+      if not left and not right:
+        return True
+      if not left or not right:
+        return False
+      if left.val!=right.val:
+        return False
+      return func1(left.left,right.right) and func1(left.right,right.left)
+    
       
 2 包含子树 A是否包含B结构
 1 A是否包含B ：
 将B遍历入queue   
 在A不存在或A B 值不同时返回false 
 2 寻找到A树和B树值相同的节点
+用queue遍历a树 找到a与b相同的节点 return True 否则return False
 bfs；
 def func(roota,rootb):
   def bfs(a,b):
