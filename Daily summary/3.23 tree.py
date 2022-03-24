@@ -1,3 +1,52 @@
+总结：
+翻转树：
+不用判断左右子叶是否存在 直接交换 前序遍历或后序遍历
+层序遍历一样吧补判断左右是否存在
+
+合并树：
+1 创造新树 new=TreeNode(n1.val+n2.val) new.left=   new.right=  return new
+2 层序遍历 
+判断两节点是否都存在：
+   存在：
+     建立新node
+    
+三个root node 入queue
+while root1 and root2:
+  pop
+  if root1.left or root2.left:
+    三种情况
+    
+  if root1.right or root2.right:
+    三种情况
+    
+3 路径之和为定值
+dfs :
+  
+bfs:
+  sum和node同时入queue
+ 
+4 路径之和问题 不一定从头开始在尾结束
+dfs:
+  def func(root):
+    def dfs(root,t):
+      if not root:
+        return 0
+      res=0
+      if root.val==t:
+        res+=1
+      res+=dfs(root.left,t-root.val)
+      res+=dfs(root.right,t-root.val)
+      return res
+    if not root:
+      return 0
+    ret=dfs(root.t)
+    ret+=func(root.left,t)
+    ret+=func(root.right,t)
+    return ret
+  
+  
+  
+  
 1 翻转树
 dfs
 前序 翻转：
