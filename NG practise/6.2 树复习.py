@@ -214,7 +214,98 @@ post-order:
   return dfs(root)!=-1
 
 
-7路径之和为定值
+7 路径之和为定值
+target sum I
+DFS:
+  def func(root,t):
+    if not root:
+      return False
+    if not root.left and not root.right and root.val==t:
+      return True
+    return func(root.left,t-root.val) or func(root.right,t-root.val)
+  
+ * target sum II:使用回溯法 利用path 和 paths 
+  dfs1：
+  def func(root,t):
+    res=[]
+    path=[]
+    def dfs(root,t):
+      if not root:
+        return 0
+      path.append(root.val)
+      if not root.left and not root.right and root.val==t:
+        res.append(path)
+      dfs(root.left,t-root.val)
+      dfs(root.right,t-root.val)
+      path.pop()
+    dfs(root,t)
+    return res
+  dfs2:
+    def func(root,t):
+      res=[]
+      def dfs(root,t,res,path):
+        if not root:
+          return
+        if not root.left and not root.right and root.val==t:
+          res.append(path+[root.val])
+        dfs()
+        dfs()
+      return res
+    
+ bfs:
+   def pathSum(self, root: Optional[TreeNode], targetSum: int) -> List[List[int]]:
+        res=[]
+        que=[(root,[],0)]
+        while que:
+            node,path,s=que.pop(0)
+            if not node:
+                continue
+            if not node.left and not node.right and s+node.val==targetSum:
+                res.append(path+[node.val])
+            que.append((node.left,path+[node.val],s+node.val))
+            que.append((node.right,path+[node.val],s+node.val))
+        return res
+      
+ 
+ target sum III:
+  dfs:
+    def func(root,t):
+      
+      def dfs(root,t):
+        if not root:
+          return 0
+        ans=0
+        if root.val==t:
+          ans+=1
+        ans+=dfs(root.left,t-root.val)
+        ans+=dfs(root.right,t-root.val)
+        return ans
+      ret=dfs(root,t)
+      ret+=func(root.left,t)
+      ret+=func(root.right,t)
+      return ret
+  pre-sum method:
+    def func(root,t):
+      prefix=collections.defaultdict(int)
+      prefix[0]=1
+      def dfs(root,curr):
+        if not root:
+          return 0
+        ret=0
+        
+
+      
+    
+   
+    
+    
+    
+    
+
+
+
+      
+
 
    
 
