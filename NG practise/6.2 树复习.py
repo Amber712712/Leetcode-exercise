@@ -291,7 +291,98 @@ DFS:
       def dfs(root,curr):
         if not root:
           return 0
-        ret=0
+        ans=0
+        curr+=root.val ###放在前面为了避免漏下叶子节点的值
+        ans+=prefix[curr-t]
+        prefix[curr]+=1   ###放在后面避免t为0的时候
+        dfs(root.left,curr)
+        dfs(root.right,curr)
+        prefix[curr]-=1
+        return ans
+8 左叶子节点之和
+###注意什么时候用全局变量 什么时候方程自己return ans 相加
+dfs:
+  def func(root):
+    ans=0
+    def dfs(root):
+    if not root:
+      return 0
+    if root.left and not root.left.left and not root.left.right:
+      ans+=root.left.val
+    dfs(root)
+    return ans
+  
+9  将树原地拉伸为链表 使用stack遍历拉伸同时进行
+def flatten(self, root: TreeNode) -> None:
+        if not root:
+            return root
+        pre=None
+        stack=[root]
+        while stack:
+            n=stack.pop()
+            if pre:
+                pre.left=None
+                pre.right=n
+            if n.right:
+                stack.append(n.right)
+            if n.left:
+                stack.append(n.left)
+            
+            pre=n
+        return root
+10 前中后序
+前1
+def func(root):
+  if not root:
+    return []
+  res=[]
+  stack=[]
+  while stack or root:
+    while root:
+      res.append(root.val)
+      stack.append(root)
+      root=root.left
+    root=stack.pop()
+    root=root.right
+  return res
+前2：
+def func(root):
+  if not root:
+    return []
+  res=[]
+  stack=[root]
+  while stack:
+    n=stack.pop()
+    res.append(n.val)
+    if n.right:
+      stack.append(n.right)
+    if n.left:
+      stack.append(n.left)
+  return res
+### 后序反过来
+  
+
+中：
+def func(root):
+  if not root:
+    return []
+  stack=[]
+  res=[]
+  while root or stack:
+    while root:
+      stack.append(root)
+      root=root.left
+    root=stack.pop()
+    res.append(root.val)
+    root=root.right
+  
+    
+      
+      
+      
+        
+        
+
         
         
 
