@@ -266,7 +266,7 @@ DFS:
             que.append((node.right,path+[node.val],s+node.val))
         return res
       
- 
+符合目标和的路径数量
  target sum III:
   dfs:
     def func(root,t):
@@ -309,8 +309,14 @@ dfs:
       return 0
     if root.left and not root.left.left and not root.left.right:
       ans+=root.left.val
+    ans+=dfs(root.left)
+    ans+=dfs(root.right)
+    
     dfs(root)
     return ans
+  
+###层序遍历：
+在node.left下判断是否是左子叶
   
 9  将树原地拉伸为链表 使用stack遍历拉伸同时进行
 def flatten(self, root: TreeNode) -> None:
@@ -375,6 +381,55 @@ def func(root):
     root=stack.pop()
     res.append(root.val)
     root=root.right
+    
+11 最小深度 只算不为空时的高度 
+def func(root):
+  ans=10**9
+  if not root:
+    return 0
+  if not root.left and not root.right:
+    return 1
+  l=func(root.left)
+  r=func(root.right)
+  if root.left:
+    ans=min(func(root.left),ans)
+  if root.right:
+    ans=min(func(root.right),ans)
+  return ans+1
+
+层序遍历：二叉树最小高度
+
+12 非自顶而下：
+相同节点值的最大路径 路径：边的数量
+def func(root):
+  self.ans=10**9
+  def dfs(root):
+    if not root:
+      return 0
+    l=dfs(root.left)
+    r=dfs(root.right)
+    
+   
+    if root.left:
+      l=l+1 if root.left.val==root.val else 0
+    if root.right:
+      r=r+1 if root.right.val==root.val else 0
+    self.ans=max(l+r,slef.ans)
+    return max(l,r)
+  
+####边的值 return max(l,r) node的值 return max(l+r)+1
+
+
+  
+      
+        
+        
+
+
+
+
+
+
   
     
       
