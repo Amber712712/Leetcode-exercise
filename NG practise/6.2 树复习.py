@@ -421,7 +421,72 @@ def func(root):
 
 
   
-      
+BST
+13 修剪BST 树
+
+14 BST公共祖先
+
+15 二叉树公共祖先
+
+16 将BST的值累加在小值上
+def func(root):
+  
+17 从有序数组中构造二叉查找树
+def func(nums):
+  if not nums:
+    return None
+  def helper(nums,l,r):
+    if l>r:
+      return 
+    mid=(l+r)//2
+    root=TreeNode(nums[mid])
+    root.left=helper(nums,l,mid-1)
+    root.right=helper(nums,mid+1,r)
+    return root
+  return helper(nums,0,len(nums)-1)
+
+18 从有序链表中构造二叉查找树
+def func(head):
+  def mid(head,tail):
+    fast=slow=head
+    while fast!=tail fast.next!=tail:
+      slow=slow.next
+      fast=fast.next.next
+    return slow
+  
+  def dfs(head,tail):
+    if head==tail:
+      return
+    node=mid(head,tail)
+    root=TreeNode(node.val)
+    root.left=dfs(head,node)
+    root.right=dfs(node.next,tail)
+    return root
+  return dfs(head,None)
+
+时间复杂度：O(nlogn)，每次递归找中点O(n)，递归次数O(logn)
+空间复杂度：O(logn)，平衡二叉树的高度O(logn)O(logn)，也就是递归过程中栈的最大深度，即需要的空间
+
+19 BST 两数之和
+法一 set+dfs/bfs
+def func(root,t):
+  s=set()
+  if not root:
+    return False
+  if t-root.val in s:
+    return True
+  s.add(root.val)
+  return dfs(root.left,t) or dfs(root.right,t)
+
+##重点是创建set 判断t-root.val是否在set里
+
+20 中序遍历搜索树：众数/最小差值/范围和（dfs/bfs完成剪枝）
+
+21 trie 未完成
+
+
+    
+  
         
         
 
