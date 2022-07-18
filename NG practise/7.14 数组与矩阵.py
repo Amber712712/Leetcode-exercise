@@ -19,9 +19,13 @@ def func(nums,r,c):
   return new
 
 3 有序矩阵的 Kth Element
+ 二分法
+（1）利用helper 确定num>=k
+ (2)利用二分法将使得left right 相同返回left
 1 3 4
 4 5 6
 7 8 9
+
 def func(matrix,k):
   n=len(matrix)
   def helper(mid):
@@ -34,7 +38,8 @@ def func(matrix,k):
         j+=1
       else:
         i-=1
-    return num>=k
+    return num>=k 
+  递增矩阵大于等于一个数的个数
   
   left,right=matrix[0][0],matrix[n-1][n-1]
   mid=(left+right)//2
@@ -44,7 +49,22 @@ def func(matrix,k):
     else:
       left=mid+1
   return left
+  利用二分法最终使得left right 两边相等
+  
+利用heap:
+  将每列元素最开头的元素入heap
+  如果这一行元素没弹完，则将这一列下一个元素入heap
+  
+def func(matrix,k):
+  heap=[(matrix[i][0],i,0) for i in range(len(matrix))]
+  heapq.heapify(heap)
+  for i in range(k-1):
+    val,x,y=heapq.heappop(heap)
+    while y<len(matrix[0]):
+      heapq.heappush(heap,(matrix[x][y+1],x,y+1))
+  return heapq.heappop(heap)
 
+ 
 4 
 
         
