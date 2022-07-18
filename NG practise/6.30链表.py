@@ -53,6 +53,52 @@ def func(head1,head2):
   return head.next
 
     
+合并K个有序链表
+使用heap 将链表都入heap后弹出成表
+def func(lists):
+  if not lists:
+    return
+  hp=[]
+  heapq.heapify(hp)
+  for l in lists:
+    head=l
+    while head:
+      heapq.heappop(hp,head.val)
+      head=head.next
+  
+  dummy=ListNode(0)
+  head=dummy
+  while hp:
+    head.next=heapq.heappop(hp)
+    
+    
+使用heap,空间为K
+def func(lists):
+  hp=[]
+  heapq.heapify(hp)
+  for i in range(len(lists)):
+    head=lists[i]
+    if head:
+      heapq.heappush(hp,(head.val,head))
+      
+  dummy=ListNode(0)
+  cur=dummy
+  while hp:
+    val,node=heapq.heappop(hp)
+    cur.next=node
+    cur=cur.next
+    if node.next:
+      heapq.heappush(hp,(node.next.val,node.next))
+  
+  return dummy.next
+      
+      
+    
+
+                            
+                           
+
+  
     
 
 从有序链表中删除重复节点
