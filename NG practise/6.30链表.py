@@ -34,6 +34,26 @@ def func(head1,head2):
   else:
     head2.next=func(head1,head2.next)
     return head2
+迭代：
+def func(head1,head2):
+  if not head1 or not head2:
+    return head1 if head1 else head2
+  dummy=ListNode(0)
+  tail=head
+  p1,p2=head1,head2
+  while p1 and p2:
+    if p1.val<p2.val:
+      tail.next=p1
+      p1=p1.next
+    else:
+      tail.next=p2
+      p2=p2.next
+    tail=tail.next
+  tail.next=head1 if head1 else head2
+  return head.next
+
+    
+    
 
 从有序链表中删除重复节点
 def func(head):
