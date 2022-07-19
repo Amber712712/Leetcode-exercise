@@ -62,7 +62,11 @@ def func(s):
   return stack==[]
    
   
-5 数组中元素与下一个比它大的元素之间的距离 单调栈
+5 数组中元素与下一个比它大的元素之间的距离 单调栈 
+创造stack不断加入元素的index 当有元素比顶端大的时候 dic[nums[stack.pop()]]=nums[i]
+剩下的栈内从上往下为升序
+
+
 def func(nums):
   if not nums:
     return []
