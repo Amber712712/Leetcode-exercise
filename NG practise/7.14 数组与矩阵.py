@@ -65,7 +65,91 @@ def func(matrix,k):
   return heapq.heappop(heap)
 
  
-4 
+4 数组相邻差值的个数
+将数组分为两组 n=9 k=5   1 9 2 8 3 4 5...
+第一组：1，n,2,n-1...
+第二组：递增或递减
+def func(n,k):
+  ans=[]
+  l=1
+  r=n
+  for i in range(k):
+    if i%2==0:
+      ans[i]=l
+      l+=1
+    else:
+      ans[i]=r
+      r-=1
+  
+  for i in range(k,n):
+    if k%2==0:
+      ans[i]=r
+      r-=1
+  return ans
+
+5 数组的度
+def func(nums):
+  dic={}
+  for i,num in enumerate(nums):
+    if num in dic:
+      dic[num][0]+=1
+      dic[num][2]=i
+    else:
+      dic[num]=(1,i,i)
+      
+  maxcount,res=0,0
+  for c,left,right in dic:
+    if c>maxcount:
+      maxcount=c
+      res=right-left+1
+    elif c==maxcount:
+      if (s:=right-left+1)<res:
+        res=s
+        
+  return res
+
+6 对角元素相等的矩阵
+def func(matrix):
+  for i in range(1,len(matrix)):
+    for j in range(1,len(matrix[0])):
+      if matrix[i][j]!=matrix[i-1][j-1]:
+        return False
+  return True
+
+7 嵌套数组
+1 有向图内环节点
+def func(nums):
+  vis=[False]*len(nums)
+  n=len(nums)
+  ans=0
+  for i in range(n):
+    cnt=0
+    while not vis[i]:
+      vis[i]=True
+      i=nums[i]
+      cnt+=1
+    ans=max(ans,cnt)
+    
+    
+    
+  
+      
+       
+      
+    
+                            
+  
+        
+      
+      
+  
+  
+  
+  
+      
+  
+  
+  
 
         
     
