@@ -299,6 +299,26 @@ DFS:
         dfs(root.right,curr)
         prefix[curr]-=1
         return ans
+      
+二叉树路径之和最大
+每个节点返回的是贡献值，贡献值是节点值加上左右节点比较大的值，最后最大和是节点值加上左右的贡献值
+def func(root):
+  if not root:
+    return 0
+  res=0
+  
+  def dfs(root):
+    nonlocal res
+    if not root:
+      return 0
+    left=max(dfs(root.left),0)
+    right=max(dfs(root.right),0)
+    
+    sum_=root.val+left+right
+    res=max(sum_,res)
+    
+    return root.val+max(left,right)
+    
 8 左叶子节点之和
 ###注意什么时候用全局变量 什么时候方程自己return ans 相加
 dfs:
