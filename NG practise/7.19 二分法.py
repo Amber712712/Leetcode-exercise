@@ -14,6 +14,16 @@ def func(nums,k):
     elif 
     
 2 查找左右边界
+def func(nums,t):
+  l,r=0,len(nums)-1
+  while l<=r:
+    mid=(l+r)//2
+    if nums[mid]<=t:
+      ans=mid
+      l=mid+1
+    else:
+      r=mid-1
+  
 3 旋转数组中找出target:
   首先先确定哪一半是升序或降序
   在一定顺序的一半进行二分操作
