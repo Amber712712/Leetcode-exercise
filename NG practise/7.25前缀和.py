@@ -31,4 +31,35 @@ def minSubArrayLen(self, target: int, nums: List[int]) -> int:
         else:
             return res
           
-2 
+2 除了自己之外的乘积 创造2列表 分别为左乘积 右乘积
+def func(nums):
+        n=len(nums)
+        l,r=[0]*n,[0]*n
+        l[0]=1
+        r[n-1]=1
+        
+        for i in range(1,n):
+                l[i]=l[i-1]*nums[i-1]
+        for i in range(n-2,-1,-1):
+                r[i]=r[r+1]*nums[i+1]
+        
+3 实现矩阵前缀和
+ def __init__(self, matrix: List[List[int]]):
+        m,n=len(matrix),len(matrix[0]) if matrix else 0
+        self.sum=[[0]*(n+1) for i in range(m)]
+        s=self.sum
+        for i in range(m):
+            for j in range(1,n+1):
+                s[i][j]=s[i][j-1]+matrix[i][j-1]
+        
+
+
+
+    def sumRegion(self, row1: int, col1: int, row2: int, col2: int) -> int:
+        s=self.sum
+        return sum(s[i][col2+1]-s[i][col1] for i in range(row1,row2+1))
+4 
+
+        
+        
+
