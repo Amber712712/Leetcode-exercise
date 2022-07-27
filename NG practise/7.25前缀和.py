@@ -58,7 +58,26 @@ def func(nums):
     def sumRegion(self, row1: int, col1: int, row2: int, col2: int) -> int:
         s=self.sum
         return sum(s[i][col2+1]-s[i][col1] for i in range(row1,row2+1))
-4 
+
+4 "*"代表盘子 "|"代表蜡烛
+左边：找出右边的蜡烛
+右边：找出左边的蜡烛
+def func(s):
+        if not s:
+                return 0
+        presum,sum_=[0],0
+        left=[0]*len(s)
+        l=0
+        
+        for i,chr in enumerate(s):
+                if chr=="*":
+                        sum+=1
+                        else:
+                                l=i
+                        
+
+
+        
 
         
         
