@@ -93,8 +93,30 @@ def func(s1,t):
       res.append(left)
         
        
-    
-      
+5 在指定字符的情况下，我们可以计算其最大连续数目。具体地，我们使用滑动窗口的方法，从左到右枚举右端点，维护区间中另一种字符的数量为 \textit{sum}sum，当 \textit{sum}sum 超过 kk，我们需要让左端点右移，直到 \textit{sum} \leq ksum≤k。移动过程中，我们记录滑动窗口的最大长度，即为指定字符的最大连续数目。
+改变K次可以使得连续最大
+def func(s,k):
+  def window(ch):
+    start,end=0,0
+    ans=0
+    sum_=0
+    while end<len(s):
+      if s[end]!=ch:
+        sum_+=1
+      while sum_>k:
+        if s[left]!=ch:
+          sum_-=1
+        left+=1
+      ans=max(ans,end-left+1)
+      end+=1
+    return ans
+  return max(window("T"),window("F"))
+
+
+
+
+
+  
         
     
  
