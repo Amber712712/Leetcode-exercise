@@ -114,6 +114,63 @@ def func(s,k):
 
 
 
+6 矩阵的最大面积
+转换成一维后利用动态规划
+def func(matrix):
+  m,n=len(matrix),len(matrix[0])
+  max_sum=-int('inf')
+  for i in range(m):
+    total=[0]*n
+    for j in range(i,m):
+      cur_sum=0
+      for k in range(n):
+        total[k]+=matrix[k][j]
+        if cur_sum>0:
+          cur_sum+=total[k]
+        else:
+          cur_sum=total[k]
+          r1=i
+          c1=k
+          
+        if cur_sum>max_sum:
+          r2=j
+          c2=k
+          
+          max_sum=cur_sum
+          ans=[r1,c1,r2,c2]
+   return ans
+        
+  
+  
+7 最大子序和并记录index
+def func(nums):
+  if not nums:
+    return 0
+  dp=[0]*len(nums)
+  dp[0]=nums[0]
+  for i in range(1,len(nums)):
+    if dp[i-1]>0:
+      dp[i]=dp[i-1]+nums[i]
+    else:
+      dp[i]=nums[i]
+      a1=i
+    if dp[i]>max_sum:
+      max_sum=dp[i]
+      a2=i
+  return [a1,a2]
+      
+      
+      
+      
+      
+      
+
+
+        
+        
+
+
+
 
 
   
