@@ -142,7 +142,27 @@ def func(s):
       
       
 
+def func(num):
+  if not num:
+    return 0
+  Q=collections.deque()
+  Q.append(num)
+  visited=set()
+  step=1
+  while Q:
+    n=len(Q)
+    for i in range(n):
+      x=Q.popleft()
+      for y in range(1,sqrt(x)+1):
+        t=x-y**2
+        if t==0:
+          return step
+        if t not in visited:
+          visited.add(t)
+          Q.append(t)
+    step+=1
 
+  
 
   
   
