@@ -76,7 +76,24 @@ def func(s):
                                 l=i
                         
 
+5 sub子序之和可以被k整除
+def func(l,k):
+        pre=0
+        dic={0:1}
+        ans=0
+        for i in l:
+                pre+=i
+                m=pre%k
+                same=dic.get(m,0)
+                ans+=same
+                dic[m]+=1
+        return ans
 
+
+                        
+                        
+                
+        
         
 
         
