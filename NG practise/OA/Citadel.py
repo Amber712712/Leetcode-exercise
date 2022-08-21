@@ -21,6 +21,57 @@ def func(points):
     
 3 m次方相乘得到一个值，把每个s[i]的该值相加得到一个和，返回这个和是奇数还是偶数
 
+4 group friend
+def func(n,q,s1,s2):
+  dic=defualtdict(list)
+  for i in range(len(q)):
+    if q[i]=='friend':
+      dic[s1[i]]=s2[i]
+      dic[s2[i]]=s1[i]
+    else:
+      f1=s1[i]
+      f2=s2[i]
+   
+  visited=[False for i in range(n)]
+  def circle(n):
+    Q=collections.deque()
+    Q.append(n)
+    while Q:
+      x=Q.popleft()
+      visited[x]=True
+      for y in dic[x]:
+        if visited[y]=False:
+          Q.append(y)
+    ans=0
+    ans+=1 if i==True for i in visited
+    
+ 
+5 区间加法 [0,0,0,0,0]  leetcode 370
+def func():
+n=length
+        l=[0]*(n+1)
+        for list in updates:
+            l[list[0]]+=list[2]
+            l[list[1]+1]+=-list[2]
+
+        for i in range(1,n+1):
+            l[i]+=l[i-1]
+        return l[:-1]
+
+    
+  
+      
+    
+    
+          
+          
+     
+  
+   
+      
+   
+      
+
     
     
     
