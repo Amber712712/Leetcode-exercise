@@ -57,7 +57,43 @@ n=length
         for i in range(1,n+1):
             l[i]+=l[i-1]
         return l[:-1]
+6 visiting cities
+red=[2,3,4]
+blue=[3,1,1]
+cost=2
+def func(red,blue,c):
+  dp=[0]*3
+  if red[0]<blue[0]+c:
+    dp[0]=red[0]
+    blue=False
+  else:
+    dp[0]=blue[0]+c
+    blue=True
+  for i in range(1,2):
+    
+    if blue==False:
+      if red[i]<2*c+blue[i]:
+        dp[i]=dp[i-1]+red[i]
+        blue=False
+      else:
+        dp[i]=dp[i-1]+2*c+blue[i]
+        blue=True
+      
+    if blue==True:
+      if red[i]<blue[i]:
+        dp[i]=dp[i-1]+red[i]
+        blue=False
+      else:
+        dp[i]=dp[i-1]+blue[i]
+        blue=True
+        
 
+
+    
+  
+  
+         
+        
     
   
       
