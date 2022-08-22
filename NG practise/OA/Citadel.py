@@ -88,6 +88,17 @@ def func(red,blue,c):
         blue=True
         
 
+动态规划方法
+red=[2,3,4]
+blue=[3,1,1]
+cost=2
+def func(red,blue,c):
+  dp=[[0,0]*4]
+  dp[0]=[0,c]
+  for i in range(1,4):
+    dp[i][0]=min(dp[i-1][0]+red[i-1],dp[i-1][1]+blue[i-1])
+    dp[i][1]=min(dp[i-1][0]+c+red[i-1],dp[i-1][1]+blue[i-1])
+  return dp
 
     
   
