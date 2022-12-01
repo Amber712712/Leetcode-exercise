@@ -1,0 +1,65 @@
+处理字符串：
+s包含p的最短子串：
+dic装p各个字符的个数，need是p字符长度，滑动右指针，如果s[end]在dic里面并且大于0，need-1，当need为0时，滑动左指针，计算即时最小长度，如果是s[start]在dic里面并且个数大于等于0，need+=1，
+
+不含重复子串的最长长度：
+start,end while end<len()，长度cur+=1, while s[end] in dic：start+=1, 即时记录长度，end+=1
+
+s是否包含p的变位词：
+与#s包含p的最短子串 相似，不同是在于长度固定，start=end-len(p) 后说明移除s[start]，最后判断need是否等于0
+
+至少有k个重复字符的最长字串：
+需要i从1到26进行枚举字符种类，利用window_c计算目前有多少种字符，less_k_c计算多少个字符少于k个
+for i in range(1,27):
+  start,end=0,0
+  window_c=0
+  less_k=0
+  dic=dict()
+  
+  while end<len(s):
+    if s[end] in dic:
+      dic[s[end]]+=1
+    else:
+                 =1
+    if dic[s[end]]=1:
+       window_c+=1
+       less_k+=1
+    if            ==k:
+       less_k-=1
+       
+    while window_c>i:
+       dic[s[start]]-=1
+       if dic[s[start]]==0:
+          window_c-=1
+          less_k-=1
+       if              ==k-1:
+          less_k+=1
+          
+    if window_c==i and less_k==0:
+       ans=max(ans,end-start+1)
+       
+       
+904 两种（或几种数字）的最长子序 （1，1，2，2，2，3，4） 最长为1，1，2，2，2 一共5个
+dic放种类的个数 如果超过2种，dic[fruit[start]]-=1，然后将start的种类pop一个，记录即时长度
+
+
+1004 最大连续1 的个数 通过可以改变k个0，得到连续的1的个数最长
+
+def func(nums):
+    start,end=0,0
+    lsum,rsum=0,0
+    ans=0
+    while end<len(nums):
+       rsum+=1-nums[end]
+       while rsum-lsum>k:
+         lsum+=nums[start]
+         start+=1
+       ans=max(ans,end-start+1)
+    return ans
+   
+
+       
+          
+  
+
+
