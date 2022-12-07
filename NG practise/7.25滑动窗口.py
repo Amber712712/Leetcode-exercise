@@ -160,6 +160,48 @@ def func(nums):
   return [a1,a2]
       
       
+    
+319 至少有 K 个重复字符的最长子串
+def func(s,k):
+  ans=0
+  window_count=0
+  less_count=0
+  dic=dict()
+  
+  for i in range(1,27):
+    window_count=0
+    less_count=0
+    dic=dict()
+    left,right=0,0
+    
+    while right<len(s):
+      if s[right] in dic:
+        dic[s[right]]+=1
+      else:
+        dic[s[right]]=1
+        
+      if dic[s[right]]==k:
+        less_count-=1
+      if dic[s[right]]==1:
+        less_count+=1
+        window_count+=1
+        
+      while window_count>i:
+        dic[s[left]]-=1
+        if dic[s[left]]==0:
+          window_count-=1
+          less_count-=1
+        if dic[s[left]]==k-1:
+          less_count+=1
+          
+        left+=1
+      if window_count==i and less_count==0:
+        ans=max(right-left+1,ans)
+      right+=1
+  return ans
+      
+       
+    
       
       
       
